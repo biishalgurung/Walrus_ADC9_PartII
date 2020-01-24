@@ -1,5 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import Property
+from django.contrib.auth import login, logout, authenticate
+ from django.contrib import messages
 # Create your views here.
 
 def get_add_property(req):
@@ -49,3 +51,7 @@ def get_estates_home(req):
     }
     return render(req,'estates_home.html',context=context)
 
+def logout_request(request):
+	logout(request)
+	messages.info(request, "Logged out successfully!")
+	return redirect("main:homepage")

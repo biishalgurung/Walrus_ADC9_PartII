@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Estate Home</title>
+</head>
+<body>
+    <div>
+
+        <h2>All Estates</h2>
+    </div>
+    <div>
+        {%for estate in estates%}
+            <div>
+                {{estate.property_name}}
+                {{estate.price}}
+                {{estate.property_detail}}
+                {{estate.uploaded_at}}
+                <a href="./update_estate/{{estate.id}}">Edit</a>
+                <a href="./delete_estate/{{estate.id}}">Delete</a>
+            </div>
+        {%endfor%}
+    </div>
+</body>
+</html>

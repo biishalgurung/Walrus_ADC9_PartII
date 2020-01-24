@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Property</title>
+</head>
+<body>
+    <div>
+        <h2>Add Property</h2>
+    </div>
+
+    <form action="./post_add_property" method="POST">
+       {%csrf_token %}
+        <input type="text" name="property_name" placeholder="Enter Propery Name">
+        <input type="integer" name="price" placeholder="Enter Propery Price">
+        <textarea name="property_detail" cols="30" rows="10" placeholder="Enter Product Detail">
+
+        </textarea>
+        <input type="submit" value="add property"/>
+    </form>
+</body>
+</html>

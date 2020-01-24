@@ -1,7 +1,15 @@
 from django.shortcuts import render,redirect
 from .models import Property
+<<<<<<< HEAD
 from django.contrib.auth import login, logout, authenticate
  from django.contrib import messages
+=======
+from django.http import HttpResponse
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.decorators import login_required
+
+>>>>>>> d5cbe64c9913cb86e613dbdaefc1d4c110758f00
 # Create your views here.
 
 def get_add_property(req):
@@ -51,7 +59,48 @@ def get_estates_home(req):
     }
     return render(req,'estates_home.html',context=context)
 
+<<<<<<< HEAD
 def logout_request(request):
 	logout(request)
 	messages.info(request, "Logged out successfully!")
 	return redirect("main:homepage")
+=======
+def search(req):
+    return render(req, 'searchforms.html')
+
+def searchdata(req):
+    property_multiples = Property.objects.filter(property_name= req.GET['name']) 
+    print("The searched data" , property_multiples)
+    return HttpResponse("record searched")
+
+
+
+def signup_part(req):
+    if req.method == 'GET':
+        return render(req, 'signUp.html')
+
+    else:
+        print(req.POST)
+        user = User.objects.create_user(username=req.POST['input_Username'], password=req.POST['input_Password'], email=req.POST['input_Email'])
+        print(user)
+        user.save()
+        return HttpResponse("Signup Successful")
+
+
+
+
+def login_part(req):
+    if req.method == 'GET':
+        return render(req, 'login.html')
+
+    else:
+        print(req.POST)
+        user = authenticate(username = req.POST['input_Username'], password = req.POST['input_Password'])
+        print(user)
+        if user is not None:
+            login(req, user)
+            return HttpResponse('login successful')
+
+        else:
+            return HttpResponse('invalid crenditals')
+>>>>>>> d5cbe64c9913cb86e613dbdaefc1d4c110758f00

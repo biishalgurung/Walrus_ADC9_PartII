@@ -26,5 +26,4 @@ class Owner(models.Model):
     owner_address=models.TextField()
     owner_details=models.TextField()
     owner_phone=models.IntegerField()
-=======
     uploaded_at=models.DateTimeField(auto_now_add=True)

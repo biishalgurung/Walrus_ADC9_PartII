@@ -6,7 +6,6 @@ class Property(models.Model):
     property_name=models.TextField()
     price=models.IntegerField()
     property_detail=models.TextField()
-<<<<<<< HEAD
     uploaded_at=models.DateTimeField(auto_now_add=True)
 
 class Customer(models.Model):
@@ -29,4 +28,3 @@ class Owner(models.Model):
     owner_phone=models.IntegerField()
 =======
     uploaded_at=models.DateTimeField(auto_now_add=True)
->>>>>>> d5cbe64c9913cb86e613dbdaefc1d4c110758f00

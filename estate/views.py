@@ -1,15 +1,12 @@
 from django.shortcuts import render,redirect
 from .models import Property
-<<<<<<< HEAD
 from django.contrib.auth import login, logout, authenticate
  from django.contrib import messages
-=======
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 
->>>>>>> d5cbe64c9913cb86e613dbdaefc1d4c110758f00
 # Create your views here.
 
 def get_add_property(req):

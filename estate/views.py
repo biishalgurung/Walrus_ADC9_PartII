@@ -1,7 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import Property
 from django.contrib.auth import login, logout, authenticate
- from django.contrib import messages
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
@@ -50,18 +49,14 @@ def post_add_property(req):
     return redirect('estates_home')
 
 def get_estates_home(req):
+    if not req.user.is_authenticated:
+        return redirect('login')
     all_estates=Property.objects.all()
     context={
         "estates":all_estates
     }
     return render(req,'estates_home.html',context=context)
 
-<<<<<<< HEAD
-def logout_request(request):
-	logout(request)
-	messages.info(request, "Logged out successfully!")
-	return redirect("main:homepage")
-=======
 def search(req):
     return render(req, 'searchforms.html')
 
@@ -96,8 +91,11 @@ def login_part(req):
         print(user)
         if user is not None:
             login(req, user)
-            return HttpResponse('login successful')
+            return redirect('estates_home')
 
         else:
             return HttpResponse('invalid crenditals')
->>>>>>> d5cbe64c9913cb86e613dbdaefc1d4c110758f00
+
+def logout_request(req):
+    logout(req)
+    return redirect('login')

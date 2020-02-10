@@ -83,7 +83,7 @@ def pagination(req,pageNo,items):
         all_estates=list(db_estates.values())
         print(all_estates[start:end])
         return JsonResponse({
-            "parlors":all_estates[start:end]
+            "properties":all_estates[start:end]
         })
 
 

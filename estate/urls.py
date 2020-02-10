@@ -15,5 +15,4 @@ urlpatterns=[
     path('search/searchdata/', searchdata, name='searchdata'),
     path('signup/', signup_part),
     path('login/', login_part,name="login"),
-
 ]

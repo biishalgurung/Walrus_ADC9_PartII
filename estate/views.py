@@ -65,8 +65,6 @@ def searchdata(req):
     print("The searched data" , property_multiples)
     return HttpResponse("record searched")
 
-
-
 def signup_part(req):
     if req.method == 'GET':
         return render(req, 'signUp.html')
@@ -77,9 +75,6 @@ def signup_part(req):
         print(user)
         user.save()
         return HttpResponse("Signup Successful")
-
-
-
 
 def login_part(req):
     if req.method == 'GET':
